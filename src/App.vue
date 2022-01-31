@@ -1,25 +1,44 @@
 <script setup>
-// This starter template is using Vue 3 <script setup> SFCs
-// Check out https://v3.vuejs.org/api/sfc-script-setup.html#sfc-script-setup
-import HelloWorld from './components/HelloWorld.vue'
-import Home from './components/Home.vue'
-import AddGoal from './components/AddGoal.vue'
+import CourseIngredients from './components/CourseIngredients.vue'
+import Recipes from './components/Recipes.vue'
+import ShoppingList from './components/ShoppingList.vue'
 </script>
 
 <template>
-  <img alt="Vue logo" src="./assets/logo.png" />
-  <HelloWorld msg="Hello Vue 3 + Vite" />
-  <Home />
-  <AddGoal />
+  <CourseIngredients />
+  <Recipes />
+  <ShoppingList />
 </template>
 
 <style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
+* {
+  box-sizing: border-box;
+}
+html {
+  font-family: sans-serif;
+}
+body {
+  margin: 0;
+}
+.container {
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.26);
+  max-width: 25rem;
+  margin: 3rem auto;
+  padding: 1rem;
+  border-radius: 12px;
+}
+button {
+  background-color: #1f001f;
+  border: 1px solid #1f001f;
+  color: white;
+  font: inherit;
+  cursor: pointer;
+  padding: 0.5rem 1.5rem;
+  margin-right: 1rem;
+}
+button:hover,
+button:active {
+  background-color: #750a75;
+  border-color: #750a75;
 }
 </style>

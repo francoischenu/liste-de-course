@@ -1,15 +1,16 @@
 <template>
   <section class="container">
-    <h2>My Goals</h2>
+    <h2>My Ingredients</h2>
     <ul>
-      <li v-for="goal in goals" :key="goal.id">{{ goal.text }}</li>
+      <li v-for="ingredient in ingredients" :key="ingredient.id">{{ ingredient.text }}</li>
     </ul>
+    {{ingredients }}
   </section>
 </template>
 
 <script>
 export default {
-  props: ["goals"],
+  props: ["ingredients"],
 };
 </script>
 
