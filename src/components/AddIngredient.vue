@@ -6,7 +6,7 @@
         <input type="text" id="ingredienttext" v-model="enteredText" />
       </div>
       <div>
-        <label for="ingredientQuantity">Quantity</label>
+        <label for="ingredientQuantity">Quantity (ex: 0.5)</label>
         <input id="ingredientQuantity" v-model="enteredQuantity" />
       </div>
       <p v-if="invalidInput">Please enter a valid ingredient text (non-empty).</p>
@@ -16,7 +16,7 @@
 </template>
 
 <script>
-import { ref, toRefs, watch } from "vue";
+import { ref, watch } from "vue";
 
 export default {
   emits: ["add-ingredient"],

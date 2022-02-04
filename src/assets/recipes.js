@@ -1,3 +1,54 @@
+const recipeTemplate = {
+    name: "",
+    ingredients: [],
+};
+
+const recipe3 = {
+  name: "Borek aux épinards",
+    ingredients: [
+        {
+            id: "2022-01-31T16:31:00.149Z",
+            text: "betterave",
+            quantity: "0.5",
+        },
+        {
+            id: "2022-01-31T16:31:12.587Z",
+            text: "feuille de brick",
+            quantity: "8",
+        },
+        {
+            id: "2022-01-31T16:31:22.235Z",
+            text: "fior di ricotta",
+            quantity: "100",
+        },
+        {
+            id: "2022-01-31T16:31:30.297Z",
+            text: "féta",
+            quantity: "80",
+        },
+        {
+            id: "2022-01-31T16:31:40.163Z",
+            text: "menthe",
+            quantity: "0.5",
+        },
+        {
+            id: "2022-01-31T16:31:50.175Z",
+            text: "oignon jaune",
+            quantity: "0.5",
+        },
+        {
+            id: "2022-01-31T16:31:58.511Z",
+            text: "roquette",
+            quantity: "50",
+        },
+        {
+            id: "2022-01-31T16:32:08.873Z",
+            text: "épinard branche",
+            quantity: "100",
+        },
+    ],
+};
+
 const recipe1 = {
   name: "curry crevettes haricots verts",
   ingredients: [
@@ -24,4 +75,4 @@ const recipe2 = {
   ],
 };
 
-export { recipe1, recipe2 };
+export { recipe1, recipe2, recipe3 };
