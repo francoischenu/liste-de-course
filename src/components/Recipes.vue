@@ -1,32 +1,27 @@
 <template>
-    <button @click="onToogleIngredients()">Show ingredients</button>
-    <div v-for="{ name, ingredients } in recipes" :key="name">
-        <h1>{{ name }}</h1>
-        <ul v-show="showIngredients">
-            <li v-for="ingredient in ingredients" :key=ingredient>
-                {{ ingredient.name }} {{ ingredient.quantity }}
-            </li>
-        </ul>
-    </div>
+  <div v-for="recipe in recipes" :key="recipe">
+    <SingleRecipe :recipe="recipe"/>
+  </div>
 </template>
 <script>
-import { ref } from '@vue/reactivity';
-import { recipe1, recipe2 } from '../assets/recipes'
+import { recipe2, recipe3 } from '../assets/recipes';
+
+import SingleRecipe from "./SingleRecipe.vue";
 
 export default({
-    setup() {
-        const recipes = { recipe1, recipe2 };
-        let showIngredients = ref(false);
+  components: { SingleRecipe },
+  setup() {
+    const recipes = { recipe2, recipe3 };
 
-        const onToogleIngredients = () => {
-            showIngredients.value = !showIngredients.value;
-        }
-
-        return {
-            recipes,
-            showIngredients,
-            onToogleIngredients,
-        }
-    },
+    return {
+      recipes,
+    }
+  },
 })
 </script>
+
+<style scoped>
+div {
+  text-align: center;
+}
+</style>

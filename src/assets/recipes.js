@@ -18,29 +18,97 @@ const recipe1 = {
 
 const recipe2 = {
   name: "curry jaune de crevettes au lait de coco",
+  toggleIngredients: false,
   ingredients: [
-    { id: "2022-01-31T13:08:08.715Z", name: "crevettes", quantity: "125" },
-    { id: "2022-01-31T13:08:28.268Z", name: "curry", quantity: "0.5" },
-    { id: "2022-01-31T13:08:39.285Z", name: "ail", quantity: "0.5" },
-    { id: "2022-01-31T13:08:48.634Z", name: "lait de coco", quantity: "150" },
-    { id: "2022-01-31T13:08:57.188Z", name: "oignon nouveau", quantity: "1" },
-    { id: "2022-01-31T13:09:07.034Z", name: "poireau", quantity: "1" },
-    { id: "2022-01-31T13:09:12.852Z", name: "riz", quantity: "150" },
+    { id: "2022-01-31T13:08:08.715Z", name: "crevettes", quantity: "125", category: "frais" },
+    { id: "2022-01-31T13:08:28.268Z", name: "curry", quantity: "0.5", category: "épicerie" },
+    { id: "2022-01-31T13:08:39.285Z", name: "ail", quantity: "0.5", category: "légumes" },
+    { id: "2022-01-31T13:08:48.634Z", name: "lait de coco", quantity: "150", category: "épicerie" },
+    { id: "2022-01-31T13:08:57.188Z", name: "oignon nouveau", quantity: "1", category: "légumes" },
+    { id: "2022-01-31T13:09:07.034Z", name: "poireau", quantity: "1", category: "légumes" },
+    { id: "2022-01-31T13:09:12.852Z", name: "riz", quantity: "150", category: "épicerie" },
   ],
 };
 
 const recipe3 = {
   name: "borek aux épinards",
+  toggleIngredients: false,
   ingredients: [
-    { id: "2022-01-31T16:31:00.149Z", name: "betterave", quantity: "0.5" },
-    { id: "2022-01-31T16:31:12.587Z", name: "feuille de brick", quantity: "8" },
-    { id: "2022-01-31T16:31:22.235Z", name: "fior di ricotta",quantity: "100" },
-    { id: "2022-01-31T16:31:30.297Z", name: "féta", quantity: "80" },
-    { id: "2022-01-31T16:31:40.163Z", name: "menthe", quantity: "0.5" },
-    { id: "2022-01-31T16:31:50.175Z", name: "oignon jaune", quantity: "0.5" },
-    { id: "2022-01-31T16:31:58.511Z", name: "roquette", quantity: "50" },
-    { id: "2022-01-31T16:32:08.873Z", name: "épinard branche", quantity: "100" }
+    { id: "2022-01-31T16:31:00.149Z", name: "betterave", quantity: "0.5", category: "légumes" },
+    { id: "2022-01-31T16:31:12.587Z", name: "feuille de brick", quantity: "8", category: "frais" },
+    { id: "2022-01-31T16:31:22.235Z", name: "fior di ricotta",quantity: "100", category: "frais" },
+    { id: "2022-01-31T16:31:30.297Z", name: "féta", quantity: "80", category: "frais" },
+    { id: "2022-01-31T16:31:40.163Z", name: "menthe", quantity: "0.5", category: "légumes" },
+    { id: "2022-01-31T16:31:50.175Z", name: "oignon jaune", quantity: "0.5", category: "légumes" },
+    { id: "2022-01-31T16:31:58.511Z", name: "roquette", quantity: "50", category: "légumes" },
+    { id: "2022-01-31T16:32:08.873Z", name: "épinard branche", quantity: "100", category: "légumes" }
   ],
 };
 
-export { recipe1, recipe2, recipe3 };
+const recipe4 = {
+  name: "Quinoa bowl mangue avocat",
+  ingredients: [
+    { id: "2022-02-04T10:48:21.394Z", name: "avocat", quantity: "1", category: "légumes" },
+    { id: "2022-02-04T10:48:59.847Z", name: "carotte", quantity: "1", category: "légumes" },
+    { id: "2022-02-04T10:49:07.599Z", name: "citron jaune", quantity: "0.5", category: "légumes" },
+    { id: "2022-02-04T10:49:18.507Z", name: "coriandre", quantity: "1", category: "légumes" },
+    { id: "2022-02-04T10:49:34.059Z", name: "échalotte", quantity: "0.25", category: "légumes" },
+    { id: "2022-02-04T10:49:43.443Z", name: "fèves", quantity: "300", category: "légumes" },
+    { id: "2022-02-04T10:49:49.715Z", name: "mangue", quantity: "1", category: "légumes" },
+    { id: "2022-02-04T10:49:57.235Z", name: "quinoa", quantity: "150", category: "épicerie" }
+  ],
+};
+
+const recipe5 = {
+  name: "brochette poulet teriyaki",
+  ingredients: [
+    { id: "2022-02-04T10:51:37.971Z", name: "chou pak choy", quantity: "1", category: "légumes" },
+    { id: "2022-02-04T10:51:50.898Z", name: "filet de poulet", quantity: "2", category: "frais" },
+    { id: "2022-02-04T10:52:02.626Z", name: "gingembre", quantity: "2", category: "légumes" },
+    { id: "2022-02-04T10:52:16.634Z", name: "ail", quantity: "0.5", category: "légumes" },
+    { id: "2022-02-04T10:52:25.378Z", name: "oignon", quantity: "0.5", category: "légumes" },
+    { id: "2022-02-04T10:52:32.994Z", name: "riz", quantity: "150", category: "épicerie" },
+    { id: "2022-02-04T10:52:47.490Z", name: "vinaigre de riz", quantity: "10", category: "épicerie" }
+  ],
+};
+
+const recipe6 = {
+  name: "poke poulet",
+  ingredients: [
+    { id: "2022-02-04T10:54:28.609Z", name: "boulgour", quantity: "120", category: "épicerie" },
+    { id: "2022-02-04T10:54:33.337Z", name: "carotte", quantity: "1", category: "légumes" },
+    { id: "2022-02-04T10:54:40.833Z", name: "citron", quantity: "0.5", category: "légumes" },
+    { id: "2022-02-04T10:54:54.801Z", name: "filet de poulet", quantity: "2", category: "frais" },
+    { id: "2022-02-04T10:55:10.849Z", name: "fromage blanc", quantity: "50", category: "frais" },
+    { id: "2022-02-04T10:55:19.772Z", name: "oignon rouge", quantity: "0.5", category: "légumes" },
+    { id: "2022-02-04T10:55:26.915Z", name: "roquette", quantity: "50", category: "légumes" }
+  ],
+};
+
+const recipe7 = {
+  name: "Salade de macaroni",
+  ingredients: [
+    { id: "2022-02-04T10:56:25.546Z", name: "fenouil", quantity: "0.5", category: "légumes" },
+    { id: "2022-02-04T10:56:30.425Z", name: "ail", quantity: "0.5", category: "légumes" },
+    { id: "2022-02-04T10:56:37.481Z", name: "lardons", quantity: "150", category: "frais" },
+    { id: "2022-02-04T10:56:49.673Z", name: "macaroni", quantity: "200", category: "épicerie" },
+    { id: "2022-02-04T10:56:57.329Z", name: "oignon rouge", quantity: "0.25", category: "légumes" },
+    { id: "2022-02-04T10:57:07.593Z", name: "parmesan", quantity: "20", category: "frais" },
+    { id: "2022-02-04T10:57:15.657Z", name: "épinards", quantity: "50", category: "légumes" }
+  ],
+};
+
+const recipe8 = {
+  name: "",
+  ingredients: [
+    { id: "2022-02-04T10:58:08.513Z", name: "échalotte", quantity: "0.5", category: "légumes" },
+    { id: "2022-02-04T10:58:16.840Z", name: "gnocchi", quantity: "400", category: "épicerie" },
+    { id: "2022-02-04T10:58:21.528Z", name: "ail", quantity: "0.5", category: "légumes" },
+    { id: "2022-02-04T10:58:30.648Z", name: "mozzarella", quantity: "100", category: "frais" },
+    { id: "2022-02-04T10:58:39.912Z", name: "pecorino", quantity: "30", category: "frais" },
+    { id: "2022-02-04T10:58:53.232Z", name: "pousses épinards", quantity: "50", category: "légumes" },
+    { id: "2022-02-04T10:59:01.560Z", name: "purée de tomates", quantity: "200", category: "épicerie" }
+  ],
+};
+
+export { recipe1, recipe2, recipe3, recipe4, recipe5, recipe6, recipe7, recipe8 };

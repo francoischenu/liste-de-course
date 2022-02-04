@@ -4,7 +4,7 @@
     <ul>
       <li v-for="ingredient in ingredients" :key="ingredient.id">{{ ingredient.name }}</li>
     </ul>
-    {{ingredients }}
+    {{ ingredients }}
   </section>
 </template>
 

@@ -1,17 +1,23 @@
 <template>
   <h1>Liste de course</h1>
-  <ul>
-    <li v-for="ingredient in newIngredients" :key=ingredient>
-      {{ ingredient.name }} {{ ingredient.quantity }}
-    </li>
-  </ul>
+  <div class="row">
+    <div class="col-lg-4 col-s-12" v-for="category in categories" :key="category">
+      <div class="category-card">
+        <h2>{{ category[0].category }}</h2>
+        <div v-for="ingredient in category" :key=ingredient class="ingredient-row">
+          <div class="ingredient-name">{{ ingredient.name }}</div>
+          <div class="ingredient-quantity">{{ ingredient.quantity }}</div>
+        </div>
+      </div>
+    </div>
+  </div>
 </template>
 <script>
-import { recipe1, recipe2, recipe3 } from '../assets/recipes'
+import { recipe2, recipe3, recipe4, recipe5, recipe6, recipe7, recipe8 } from '../assets/recipes'
 
 export default({
   setup() {
-    const recipes = [ recipe1, recipe2, recipe3 ];
+    const recipes = [ recipe2, recipe3, recipe4, recipe5, recipe6, recipe7, recipe8 ];
 
     const rawIngredients = [];
     recipes.forEach(({ ingredients }) => {
@@ -30,12 +36,44 @@ export default({
         const newQuantity = Number.parseFloat(newIngredients[index].quantity) + Number.parseFloat(ingredient.quantity);
         newIngredients.splice(index, 1, {...ingredient, quantity: newQuantity});
       }
-    })
+    });
+
+    const vegetables = newIngredients.filter(({ category }) => category === "légumes");
+    const fresh = newIngredients.filter(({ category }) => category === "frais");
+    const dry = newIngredients.filter(({ category }) => category === "épicerie");
+
+    const categories = [vegetables, fresh, dry];
 
     return {
-      ingredients,
+      categories,
       newIngredients,
     }
   },
 })
 </script>
+
+<style scoped>
+h1, h2, div {
+  text-align: center;
+}
+
+h1, h2 {
+  margin-bottom: 2rem;
+}
+
+.category-card {
+  border: #1f001f solid 1px;
+  margin: 2rem;
+  padding: 2rem 0;
+}
+
+.ingredient-row {
+  margin: 0 4rem;
+  display: flex;
+  justify-content: space-between;
+}
+
+.ingredient-name, .ingredient-quantity {
+  display: flex;
+}
+</style>

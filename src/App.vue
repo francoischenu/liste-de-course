@@ -1,14 +1,40 @@
-<script setup>
+<template>
+  <MainMenu @switch-page="onSwitchPage"/>
+  <Recipes v-if="currentPage === 'recipes'"/>
+  <CourseIngredients v-else-if="currentPage === 'ingredients'"/>
+  <ShoppingList v-else-if="currentPage === 'shoppingList'"/>
+  <span v-else>Home page</span>
+</template>
+
+<script>
+import {ref} from "vue";
+
 import CourseIngredients from './components/CourseIngredients.vue'
 import Recipes from './components/Recipes.vue'
 import ShoppingList from './components/ShoppingList.vue'
-</script>
+import MainMenu from './components/MainMenu.vue'
 
-<template>
-  <CourseIngredients />
-  <Recipes />
-  <ShoppingList />
-</template>
+export default({
+  components: {
+    CourseIngredients,
+    Recipes,
+    ShoppingList,
+    MainMenu,
+  },
+  setup() {
+    let currentPage = ref("");
+
+    const onSwitchPage = (page) => {
+      currentPage.value = page;
+    };
+
+    return {
+      onSwitchPage,
+      currentPage,
+    }
+  },
+})
+</script>
 
 <style>
 * {
