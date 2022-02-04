@@ -2,7 +2,7 @@
   <section class="container">
     <h2>My Ingredients</h2>
     <ul>
-      <li v-for="ingredient in ingredients" :key="ingredient.id">{{ ingredient.text }}</li>
+      <li v-for="ingredient in ingredients" :key="ingredient.id">{{ ingredient.name }}</li>
     </ul>
     {{ingredients }}
   </section>

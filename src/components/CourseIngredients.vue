@@ -21,16 +21,16 @@ export default {
 
     const filteredIngredients = computed(function() {
       return ingredients.value.filter(
-        (ingredient) => !ingredient.text.includes("Angular") && !ingredient.text.includes("React")
+        (ingredient) => !ingredient.name.includes("Angular") && !ingredient.name.includes("React")
       );
     });
 
     function addIngredient(res) {
       console.log(res);
-      const { text, quantity } = res;
+      const { name, quantity } = res;
       const newIngredient = {
         id: new Date().toISOString(),
-        text,
+        name,
         quantity,
       };
       ingredients.value.push(newIngredient);

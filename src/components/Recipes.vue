@@ -4,7 +4,7 @@
         <h1>{{ name }}</h1>
         <ul v-show="showIngredients">
             <li v-for="ingredient in ingredients" :key=ingredient>
-                {{ ingredient.text }} {{ ingredient.quantity }}
+                {{ ingredient.name }} {{ ingredient.quantity }}
             </li>
         </ul>
     </div>
