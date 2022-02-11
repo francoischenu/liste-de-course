@@ -3,7 +3,6 @@
   <Recipes v-if="currentPage === 'recipes'"/>
   <CourseIngredients v-else-if="currentPage === 'ingredients'"/>
   <ShoppingList v-else-if="currentPage === 'shoppingList'"/>
-  <span v-else>Home page</span>
 </template>
 
 <script>
@@ -22,7 +21,7 @@ export default({
     MainMenu,
   },
   setup() {
-    let currentPage = ref("");
+    let currentPage = ref("shoppingList");
 
     const onSwitchPage = (page) => {
       currentPage.value = page;
@@ -56,6 +55,7 @@ body {
 button {
   background-color: #1f001f;
   border: 1px solid #1f001f;
+  border-radius: 0.125rem !important;
   color: white;
   font: inherit;
   cursor: pointer;
@@ -64,7 +64,7 @@ button {
 }
 button:hover,
 button:active {
-  background-color: #750a75;
-  border-color: #750a75;
+  background-color: #ffffff;
+  color: #1f001f;
 }
 </style>

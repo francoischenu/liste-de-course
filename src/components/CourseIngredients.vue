@@ -21,12 +21,13 @@ export default {
 
     function addIngredient(res) {
       console.log(res);
-      const { name, quantity, category } = res;
+      const { name, quantity, category, subCategory } = res;
       const newIngredient = {
         id: new Date().toISOString(),
         name,
         quantity,
         category,
+        subCategory,
       };
       ingredients.value.push(newIngredient);
     }
