@@ -6,8 +6,8 @@
         <div class="category_card">
           <h2>{{ category.name }}</h2>
           <div v-for="subCategory in category.subCategories" :key=subCategory class="">
-            <div class="sub-category_card">
-              <h3>{{ subCategory[0].subCategory }}</h3>
+            <div v-if="subCategory.length" class="sub-category_card">
+              <h3>{{ subCategory[0]?.subCategory }}</h3>
               <div v-for="ingredient in subCategory" :key=ingredient class="ingredient_row">
                 <div class="ingredient-name">{{ ingredient.name }}</div>
                 <div class="ingredient-quantity">{{ ingredient.quantity }}</div>
@@ -65,6 +65,9 @@ export default ({
     const oils = dry.filter(({ subCategory }) => subCategory === 'huile');
     const asian = dry.filter(({ subCategory }) => subCategory === 'asiatique');
     const spices = dry.filter(({ subCategory }) => subCategory === 'épice');
+    const bio = dry.filter(({ subCategory }) => subCategory === 'bio');
+
+    // ne pas afficher les listes vides
 
     const categories = [
       {
@@ -82,7 +85,7 @@ export default ({
       {
         name: 'Epicerie',
         subCategories: [
-          pasta, salsas, oils, asian, spices,
+          pasta, salsas, oils, asian, spices, bio,
         ],
       },
     ];

@@ -1,27 +1,29 @@
 <template>
-  <MainMenu @switch-page="onSwitchPage"/>
-  <Recipes v-if="currentPage === 'recipes'"/>
-  <CourseIngredients v-else-if="currentPage === 'ingredients'"/>
-  <ShoppingList v-else-if="currentPage === 'shoppingList'"/>
+  <div>
+    <MainMenu @switch-page="onSwitchPage"/>
+    <MyRecipes v-if="currentPage === 'recipes'"/>
+    <CourseIngredients v-else-if="currentPage === 'ingredients'"/>
+    <ShoppingList v-else-if="currentPage === 'shoppingList'"/>
+  </div>
 </template>
 
 <script>
-import {ref} from "vue";
+import { ref } from 'vue';
 
-import CourseIngredients from './components/CourseIngredients.vue'
-import Recipes from './components/Recipes.vue'
-import ShoppingList from './components/ShoppingList.vue'
-import MainMenu from './components/MainMenu.vue'
+import CourseIngredients from './components/CourseIngredients.vue';
+import MyRecipes from './components/MyRecipes.vue';
+import ShoppingList from './components/ShoppingList.vue';
+import MainMenu from './components/MainMenu.vue';
 
-export default({
+export default ({
   components: {
     CourseIngredients,
-    Recipes,
+    MyRecipes,
     ShoppingList,
     MainMenu,
   },
   setup() {
-    let currentPage = ref("shoppingList");
+    const currentPage = ref('shoppingList');
 
     const onSwitchPage = (page) => {
       currentPage.value = page;
@@ -30,9 +32,9 @@ export default({
     return {
       onSwitchPage,
       currentPage,
-    }
+    };
   },
-})
+});
 </script>
 
 <style>

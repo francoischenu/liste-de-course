@@ -14,7 +14,7 @@ const categories = [
   {
     name: 'Epicerie',
     subCategories: [
-      'féculent', 'sauces', 'huile', 'asiatique', 'épice',
+      'féculent', 'sauces', 'huile', 'asiatique', 'épice', 'bio',
     ],
   },
 ];
