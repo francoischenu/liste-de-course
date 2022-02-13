@@ -2,12 +2,32 @@
   <section class="container">
     <form @submit.prevent="addIngredient">
       <div>
-        <label for="ingredienttext">Ingredient</label>
-        <input type="text" id="ingredienttext" v-model="enteredText" />
+        <label for="ingredienttext">Ingrédient</label>
+        <input type="text" id="ingredienttext" v-model="enteredName" />
       </div>
       <div>
-        <label for="ingredientQuantity">Quantity (ex: 0.5)</label>
+        <label for="ingredientQuantity">Quantitée</label>
         <input id="ingredientQuantity" v-model="enteredQuantity" />
+      </div>
+      <div>
+        <label for="ingredientCategory">Catégorie</label>
+        <select id="ingredientCategory" v-model="enteredCategory" class="form-select">
+          <option v-for="category in categories" :value="category" :key="category.name">
+            {{ category.name }}
+          </option>
+        </select>
+      </div>
+      <div v-if="enteredCategory">
+        <label for="ingredientSubCategory">Sous Catégorie</label>
+        <select id="ingredientSubCategory" v-model="enteredSubCategory" class="form-select">
+          <option
+            v-for="subCategory in enteredCategory.subCategories"
+            :value="subCategory"
+            :key="subCategory"
+          >
+            {{ subCategory }}
+          </option>
+        </select>
       </div>
       <p v-if="invalidInput">Please enter a valid ingredient text (non-empty).</p>
       <button>Add Ingredient</button>
@@ -16,37 +36,52 @@
 </template>
 
 <script>
-import { ref, watch } from "vue";
+import { ref, watch } from 'vue';
+
+import categories from '../assets/categories';
 
 export default {
-  emits: ["add-ingredient"],
+  emits: ['add-ingredient'],
   setup(_, context) {
-    const enteredText = ref("");
-    const enteredQuantity = ref("");
+    const enteredName = ref('');
+    const enteredQuantity = ref('');
+    const enteredCategory = ref('');
+    const enteredSubCategory = ref('');
     const invalidInput = ref(false);
 
-    watch(invalidInput, function (val) {
-      if (val) {
-        console.log("Analytics: Invalid Input");
+    watch(invalidInput, (value) => {
+      if (value) {
+        console.log('Analytics: Invalid Input');
       }
     });
 
     function addIngredient() {
       invalidInput.value = false;
-      if (enteredText.value === "" || enteredQuantity.value === "") {
+      if (enteredName.value === '' || enteredQuantity.value === '') {
         invalidInput.value = true;
         return;
       }
-      const text = enteredText.value;
+      const name = enteredName.value;
       const quantity = enteredQuantity.value;
-      context.emit("add-ingredient", { text, quantity });
-      enteredText.value = "";
-      enteredQuantity.value = "";
+      const category = enteredCategory.value.name;
+      const subCategory = enteredSubCategory.value;
+      context.emit('add-ingredient', {
+        name, quantity, category, subCategory,
+      });
+
+      // reset form
+      enteredName.value = '';
+      enteredQuantity.value = '';
+      enteredCategory.value = '';
+      enteredSubCategory.value = '';
     }
 
     return {
-      enteredText,
+      categories,
+      enteredName,
       enteredQuantity,
+      enteredCategory,
+      enteredSubCategory,
       invalidInput,
       addIngredient,
     };
@@ -70,5 +105,17 @@ input {
   display: block;
   width: 100%;
   margin-bottom: 0.5rem;
+}
+
+select {
+  margin-bottom: 0.5rem;
+}
+
+button {
+  margin-top: 1rem;
+}
+
+.container {
+  padding: 2rem 7rem;
 }
 </style>

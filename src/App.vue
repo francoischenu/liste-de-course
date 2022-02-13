@@ -1,14 +1,41 @@
-<script setup>
-import CourseIngredients from './components/CourseIngredients.vue'
-import Recipes from './components/Recipes.vue'
-import ShoppingList from './components/ShoppingList.vue'
-</script>
-
 <template>
-  <CourseIngredients />
-  <Recipes />
-  <ShoppingList />
+  <div>
+    <MainMenu @switch-page="onSwitchPage"/>
+    <MyRecipes v-if="currentPage === 'recipes'"/>
+    <CourseIngredients v-else-if="currentPage === 'ingredients'"/>
+    <ShoppingList v-else-if="currentPage === 'shoppingList'"/>
+  </div>
 </template>
+
+<script>
+import { ref } from 'vue';
+
+import CourseIngredients from './components/CourseIngredients.vue';
+import MyRecipes from './components/MyRecipes.vue';
+import ShoppingList from './components/ShoppingList.vue';
+import MainMenu from './components/MainMenu.vue';
+
+export default ({
+  components: {
+    CourseIngredients,
+    MyRecipes,
+    ShoppingList,
+    MainMenu,
+  },
+  setup() {
+    const currentPage = ref('shoppingList');
+
+    const onSwitchPage = (page) => {
+      currentPage.value = page;
+    };
+
+    return {
+      onSwitchPage,
+      currentPage,
+    };
+  },
+});
+</script>
 
 <style>
 * {
@@ -30,6 +57,7 @@ body {
 button {
   background-color: #1f001f;
   border: 1px solid #1f001f;
+  border-radius: 0.125rem !important;
   color: white;
   font: inherit;
   cursor: pointer;
@@ -38,7 +66,7 @@ button {
 }
 button:hover,
 button:active {
-  background-color: #750a75;
-  border-color: #750a75;
+  background-color: #ffffff;
+  color: #1f001f;
 }
 </style>
